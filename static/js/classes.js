@@ -4,7 +4,16 @@ class Turma {
         this.nomeTurma = nomeTurma
         this.alunos = []
     }
-    cadastrarAluno(aluno) {
-        let aluno = new Aluno()
+    cadastrarAluno(matricula, nome, telefone, email) {
+        this.alunos.push = new Aluno(matricula, nome, telefone, email)   
+    }
+}
+
+class Aluno {
+    constructor(matricula, nome, telefone, email) {
+        this.matricula = matricula
+        this.nome = nome
+        this.telefone = telefone
+        this.email = email
     }
 }
