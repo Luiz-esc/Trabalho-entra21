@@ -4,8 +4,43 @@ class Turma {
         this.nomeTurma = nomeTurma
         this.alunos = []
     }
+
     cadastrarAluno(matricula, nome, telefone, email) {
-        this.alunos.push = new Aluno(matricula, nome, telefone, email)   
+        this.alunos.push(new Aluno(matricula, nome, telefone, email))   
+    }
+
+    removerAluno(matricula) {
+        for (let i = 0; i < this.alunos.length; i++) {
+            if (this.alunos[i].matricula == matricula) {
+                this.alunos.splice(i, 1)
+            }
+        }
+    }
+
+    cadastraNotas(matricula, n1, n2, n3) {
+        for (let aluno of this.alunos) {
+            if (aluno.matricula == matricula) {
+                aluno.notas = [n1, n2, n3]
+            }
+        }
+    }
+
+    editarInformações(matricula, nome, telefone, email) {
+        for (let aluno of this.alunos) {
+            if (aluno.matricula == matricula) {
+                aluno.nome = nome
+                aluno.telefone = telefone
+                aluno.email = email
+            }
+        }
+    }
+
+    calcularMedia(matricula) {
+        for (let aluno of this.alunos) {
+            if (aluno.matricula == matricula) {
+                return (aluno.notas[0] + aluno.notas[1] + aluno.notas[2]) / 3
+            }
+        }
     }
 }
 
@@ -15,5 +50,11 @@ class Aluno {
         this.nome = nome
         this.telefone = telefone
         this.email = email
+        this.notas = []
     }
 }
+let turma1 = new Turma(01, "Turma 1")
+
+turma1.cadastrarAluno(123, "Luiz", "99999-9999", "luiz@luiz.luiz")
+turma1.cadastrarAluno(321, "joao", "9312499-9999", "maria@luiz.luiz")
+turma1.cadastrarAluno(333, "aaaaa", "91219-9999", "luiz@joao.luiz")
