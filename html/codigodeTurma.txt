@@ -1,0 +1,15 @@
+   <!-- // // Obter o codigo da turma
+        // const codigoTurma = +new URLSearchParams(location.search).get("codigoTurma")
+
+        // const turmas = JSON.parse(localStorage.getItem("turmas"))
+
+        // for (let turma of turmas) {
+        //     if (turma.codigoTurma === codigoTurma) {
+        //         for (let aluno of turma.alunos) {
+        //             const pAluno = document.createElement("p")
+        //             pAluno.innerHTML = aluno.nome
+        //             document.body.append(pAluno)
+        //         }
+        //         break
+        //     }        
+        // } --> 

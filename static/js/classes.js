@@ -1,3 +1,12 @@
+
+function cadastrarTurma(codigoTurma,nomeTurma){
+    let turmasVetor = JSON.parse(localStorage.getItem("turmasVetor"))
+    console.log(turmasVetor)
+    turmasVetor.push(new Turma(codigoTurma, nomeTurma))
+    localStorage.setItem("turmasVetor",JSON.stringify(turmasVetor))
+}
+
+
 class Turma {
     constructor(codigoTurma, nomeTurma) {
         this.codigoTurma = codigoTurma
@@ -53,8 +62,3 @@ class Aluno {
         this.notas = []
     }
 }
-let turma1 = new Turma(01, "Turma 1")
-
-turma1.cadastrarAluno(123, "Luiz", "99999-9999", "luiz@luiz.luiz")
-turma1.cadastrarAluno(321, "joao", "9312499-9999", "maria@luiz.luiz")
-turma1.cadastrarAluno(333, "aaaaa", "91219-9999", "luiz@joao.luiz")
