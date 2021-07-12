@@ -141,7 +141,7 @@ nav{
   letter-spacing: 0.4px;
   color: #711C1E;
   text-align: center;
-  margin: 20px;
+  margin: 30px;
   line-height: 1.5;
 }
 
@@ -254,11 +254,41 @@ nav{
               display: flex;
               justify-content: space-around;
               align-items: center;
-            }
+              margin: 0
+          }
             
             .value {
-              font-size: 30px;
+              font-size: 69px;
               display: block;
               font-weight: bold;
-              color: #711C1E;
+              color: #FEC025;
+              position: relative;
+              top: 30px;
             }
+
+            .col {
+              background:#711C1E;;
+              display: block;
+              float:left;
+              margin: 1% 0 1% 10%;
+              width: 100px;
+            }
+          
+            .row:before,
+            .row:after { content:""; display:table; }
+            .row:after { clear:both;}
+            .row { zoom:1;}
+            
+          
+            @media only screen and (max-width: 768px) {
+              .col {  margin: 1% 0 1% 0%; }
+              [class*='grid_'] { width: 100%; }
+            }
+            .grid_1_of_5{
+              color: #FEC025;
+              font-size: 36px;
+              
+              
+            }
+
+            
