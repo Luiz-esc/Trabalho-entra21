@@ -3,7 +3,7 @@ body{
 }
 
 #logo{
-    width: 30%;
+    width: 20%;
     display: inl;
     right: 15%;
     margin-left: 0px;
@@ -21,22 +21,22 @@ header{
     color: #FEC025;
     font-weight: bold;
     letter-spacing: 1px;
-    font-family: 'Oswald Book', 'Oswald';
+    font-family: 'Ditot, sans serif';
     
 }
 
 #subtitulo-section{
-    font-size: 30px;
+    font-size: 26px;
     display: block;
     text-align: center;
     color: #FEC025;
-    font-weight: 400;
+    font-weight: 200;
     letter-spacing: 1px;
-    font-family: 'Oswald Book', 'Oswald';
+    font-family: 'Lato', sans-serif;
 }
 
 #titulo{
-    background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url(../images/background.png);
+    background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url(../images/background\ !!.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0;
@@ -73,15 +73,15 @@ header{
   }
 
   .titulo-card{
-    font-family: 'Oswald Book', 'Oswald';
-    color: #666;
+    font-family: 'Lato', sans-serif;
+    color: rgb(102, 102, 102);
     font-size: 1.375rem;
     line-height: 27px;
     margin-bottom: 15px;
   }
 
   .info{      
-    font-family: 'Open Sans Regular', 'Open Sans', Arial;
+    font-family: 'Lato', sans-serif;
     color: #666;
   }
 
@@ -109,7 +109,7 @@ nav{
 }
 
 #lista-nome{
-    font-size: 22px;
+    font-size: 18px;
     display: block;
     text-align: center;
     color: #711C1E;
@@ -117,3 +117,148 @@ nav{
     letter-spacing: 1.5px;
     font-family: 'Open Sans Regular', 'Open Sans', Arial;
 }
+
+#logo-intro{
+    width: 70%;
+    display: inl;
+    right: 15%;
+    margin-left: 0px;
+    margin-top: 10%;
+  }
+
+.texto-intro{
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.4px;
+  color: #711C1E;
+  font-weight: 530;
+  font-size: 14px;
+  margin: 20px;
+  line-height: 1.5;
+}
+
+#titulo-fotos{
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.4px;
+  color: #711C1E;
+  text-align: center;
+  margin: 20px;
+  line-height: 1.5;
+}
+
+
+* {box-sizing: border-box;}
+            body {font-family: 'Lato', sans-serif;}
+            .mySlides {display: none;}
+            img {vertical-align: middle }
+            
+            
+            .slideshow-container {
+              max-width: 400px;
+              position: relative;
+              margin: auto;
+            }
+            
+           
+            .text {
+              color: #711C1E;
+              font-size: 15px;
+              padding: 8px 12px;
+              position: absolute;
+              bottom: 8px;
+              font-weight: 600;
+              width: 100%;
+              text-align: center;
+            }
+            
+            
+            .numbertext {
+              color: #711C1E;
+              font-size: 12px;
+              font-weight: 600;
+              padding: 8px 12px;
+              position: absolute;
+              top: 0;
+            }
+            
+            .dot {
+              height: 15px;
+              width: 15px;
+                margin: 0 2px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+              }
+            
+            
+            .active {
+              background-color: #711C1E;
+            }
+            
+            
+            .fade {
+              -webkit-animation-name: fade;
+              -webkit-animation-duration: 1.5s;
+              animation-name: fade;
+              animation-duration: 1.5s;
+            }
+            
+            @-webkit-keyframes fade {
+              from {opacity: .4} 
+              to {opacity: 1}
+            }
+            
+            @keyframes fade {
+              from {opacity: .4} 
+              to {opacity: 1}
+            }
+            
+            
+            @media only screen and (max-width: 300px) {
+              .text {font-size: 11px}
+            }
+
+
+            .cards {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+              grid-gap: 30px;
+            }
+            
+            
+            .cards {
+              max-width: 960px;
+              margin: 0 auto 30px;
+            }
+            
+            article {
+              position: relative;
+            }
+            
+            .article-img {
+              height: 200px;
+              width: 100%;
+              object-fit: cover;
+            }
+            
+            .article-title {
+              color: #711C1E;
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              padding: 10px;
+              background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .content {
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+            }
+            
+            .value {
+              font-size: 30px;
+              display: block;
+              font-weight: bold;
+              color: #711C1E;
+            }
