@@ -346,17 +346,12 @@
     </header>
 
         <div class="buttons">
+            <p>Código Turma</p>
             <input type="text" id="codigoTurma">
+            <p>Nome da Turma</p>
             <input type="text" id="nomeTurma">
 
-            <!-- Hover #2 -->
-            <div class="box-2">
-                <div  id="sub"  class="btn btn-two lightSpeedIn">
-                <span >HOVER ME</span>
-                </div>
-            </div>
-
-            
+            <input type="submit" id="sub">
         </div>
 
       
@@ -364,23 +359,51 @@
         <div class="divTurmas">
 
         </div>
+        <style>
+            .divTurmas {
+                background-color: transparent;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                align-items: center;
+                height: 100vh;
+                text-align: center;
+            }
 
-       
+            .divTurmas a {
+                text-decoration: none;
+                color: white;
+                line-height: 1.75;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                background-color: black;
+                width: 100%;
+                border-radius: 17px;
+            }
+        </style>
 
-        <script  src="../static/js/classes.js">
-            let submit = document.getElementById("sub")
-            let codigoTurma = document.getElementById("codigoTurma"),
-                    nomeTurma = document.getElementById("nomeTurma")
+        <script  src="../static/js/classes.js"> </script>
+        <script>
+         let submit = document.querySelector("#sub"),
+                codigoTurma = document.querySelector("#codigoTurma"),
+                nomeTurma = document.querySelector("#nomeTurma")
 
-                   
-    
-            window.addEventListener('click', (event) =>{
-                let codTurma = codigoTurma.innerHTML,
-                    nameTur = nomeTurma.innerHTML
-                alert("oi")
-                cadastrarTurma(codTurma, nameTur)
+            submit.addEventListener('click', (event) => {
+                cadastrarTurma(codigoTurma.value  ,nomeTurma.value)
             })
-        </script>
+
+            window.addEventListener("load", (event) => {
+                let turmas = JSON.parse(localStorage.getItem("turmasVetor")),
+                    divTurmas = document.querySelector(".divTurmas")
+                
+                for (let turma of turmas) {
+                    const linkTurma = document.createElement("a")
     
+                    linkTurma.href = `test.html?codigoTurma=${turma.codigoTurma}`
+                    linkTurma.innerHTML = (turma.nomeTurma || "Sem Nome" ) + "<br>" + (turma.codigoTurma || "Sem")
+    
+                    divTurmas.append(linkTurma)
+                }
+                })
+        </script>
 </body>
 </html>

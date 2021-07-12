@@ -18,7 +18,7 @@
                 <ul id="lista-nav">
                     <li><img id="logo" src="../static/images/Logo_noTittle_1000x800.png" alt=""></li>
                     <li><a id="titulo-home" href="../html/index.html"><p id="lista-nome">Home</p></a></li>
-                    <li><a id="titulo-home" href=""><p id="lista-nome">Turmas</p></a></li>
+                    <li><a id="titulo-home" href="turmas.html"><p id="lista-nome">Turmas</p></a></li>
                 </ul>
             </div>
             </header>
@@ -156,35 +156,39 @@
             </div>
         
             
-            
+        <script>
+            let turmas = JSON.parse(localStorage.getItem("turmasVetor")) || []
+            localStorage.setItem("turmasVetor",JSON.stringify(turmas))
+        </script>
+                
               
               
-              <script>
+        <script>
             
             const counters = document.querySelectorAll('.value');
             const speed = 700;
 
             counters.forEach( counter => {
-            const animate = () => {
-                const value = +counter.getAttribute('akhi');
-                const data = +counter.innerText;
+                const animate = () => {
+                    const value = +counter.getAttribute('akhi');
+                    const data = +counter.innerText;
+                    
+                    const time = value / speed;
+                    if(data < value) {
+                        counter.innerText = Math.ceil(data + time);
+                        setTimeout(animate, 1);
+                        }else{
+                        counter.innerText = value;
+                        }
                 
-                const time = value / speed;
-                if(data < value) {
-                    counter.innerText = Math.ceil(data + time);
-                    setTimeout(animate, 1);
-                    }else{
-                    counter.innerText = value;
                     }
-                
-            }
    
-   animate();
-});
+                animate();
+            });
 
         
 
-              </script>
+        </script>
 
               
             
