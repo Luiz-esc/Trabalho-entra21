@@ -1,0 +1,48 @@
+.divTurmas {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    height: calc(100vh / 2);
+    padding: 5%;
+}
+
+.divTurmas a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    line-height: 1.75;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
+    width: 100%;
+    border-radius: 17px;
+}
+
+#logo{
+    width: 20%;
+}
+
+p{
+    font-family: 'Encode Sans SC', sans-serif;
+    font-weight: 700;
+}
+
+input{
+    border-radius: 17px;
+    border: 1px solid black;
+    height: 30px;
+}
+
+#sub{
+    background-color: black;
+    color: white;
+}
+
+.buttons {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+}
