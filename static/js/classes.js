@@ -4,6 +4,7 @@ function cadastrarTurma(codigoTurma,nomeTurma){
     console.log(turmasVetor)
     turmasVetor.push(new Turma(codigoTurma, nomeTurma))
     localStorage.setItem("turmasVetor",JSON.stringify(turmasVetor))
+    console.log(JSON.stringify(turmasVetor))
 }
 
 
