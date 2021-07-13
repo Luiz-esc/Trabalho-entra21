@@ -3,31 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style_turmas.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/aluno.css">
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <nav id="nav">
+            <div class="container-nav">
+            <ul id="lista-nav">
+                <li><a href="../html/index.html"><img id="logo" src="../static/images/Logo_noTittle_1000x800.png" alt=""></a></li>
+                <li><a id="titulo-home" href="index.html"><p id="lista-nome">Home</p></a></li>
+                <li><a id="titulo-home" href="turmas.html"><p id="lista-nome">Turmas</p></a></li>
+            </ul>
+        </div>
+    </header>
+    <button id="myBtn">Open Modal</button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Cadastrar Nota</h2>
+            <p>Nota 1</p>
+            <input type="text" id="n1">
+            <p>Nota 2</p>
+            <input type="text" id="n2">
+            <p>Nota 3</p>
+            <input type="text" id="n3" ><br><br>
+            <input type="submit" id="submit">
+          </div>
+    </div>
+
+    <div class="info">
+
+    </div>
+
+    <table>
+        <tr id="tr">
+            <td id="n1Nota">
+
+            </td>
+            <td id="n2Nota">
+
+            </td>
+            <td id="n3Nota">
+
+            </td>
+            <td id="mediaNota">
+
+            </td>
+        </tr>
+    </table>
+
 
     <script src="../static/js/classes.js"></script>
     <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        } 
+
         const codigoTurma = +new URLSearchParams(location.search).get("codigoTurma")
         const codigoAluno = +new URLSearchParams(location.search).get("codigoAluno")
         const turmas = JSON.parse(localStorage.getItem("turmasVetor"))
+
+        let n1 = document.querySelector("#n1"),
+            n2 = document.querySelector("#n2"),
+            n3 = document.querySelector("#n3"),
+            submit = document.querySelector("#submit")
+
 
         for (let turma of turmas) {
             if (+turma.codigoTurma === codigoTurma) {
                 var turmaObj = Object.assign(new Turma("",""), turma)
 
+                submit.addEventListener("click", (event) =>{
+                    for (let i = 0; i < turmaObj.alunos.length; i++) {
+                        if(turmaObj.alunos[i].matricula == codigoAluno) {
+                            var alunoObj = Object.assign(new Aluno("",""), turmaObj.alunos[i])
+                            alunoObj.cadastraNotas(n1.value, n2.value, n3.value)
+                            turmaObj.alunos[i] = alunoObj
+                        
+                            let n1Nota = document.querySelector("#n1Nota"),
+                                n2Nota = document.querySelector("#n2Nota"),
+                                n3Nota = document.querySelector("#n3Nota"),
+                                mediaNota = document.querySelector("#mediaNota")
+                            
+                            n1Nota.innerHTML = n1.value || 0
+                            n2Nota.innerHTML = n2.value || 0
+                            n3Nota.innerHTML = n3.value || 0
+                            mediaNota.innerHTML = alunoObj.calcularMedia(+n1.value, +n2.value, +n3.value)
+
+                            localStorage.setItem("turmasVetor",JSON.stringify(turmas))
+                        }
+                    }
+                })
+
                 for(let aluno of turmaObj.alunos){
                     if(aluno.matricula == codigoAluno){
+                        var alunoObj = Object.assign(new Aluno("",""), aluno)
                         const infoAluno = document.createElement("div")
+                        let info = document.querySelector(".info")
                         infoAluno.innerHTML = "Nome do aluno: " + (aluno.nome) + "<br>" + "Matricula: " + (aluno.matricula) + "<br>" + "Telefone: " + (aluno.telefone) + "<br>" + "E-mail: " + (aluno.email)
         
-                        document.body.append(infoAluno)
+                        info.append(infoAluno)
                     }
-        
                 }
             }
-        }        
+        } 
+
+        
+    
+        
+        
     </script>
 </body>
 </html>
