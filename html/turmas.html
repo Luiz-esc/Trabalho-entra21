@@ -26,7 +26,7 @@
         <div class="buttons">
             <p>Código Turma</p>
             <input type="text" id="codigoTurma" required placeholder=" Código da Turma">
-            <p>Nome da Turma (4 a 15 caracteres)</p>
+            <p>Nome da Turma (até 15 caracteres)</p>
             <input type="text" id="nomeTurma" minlength="4" maxlength="15" required  placeholder=" Nome da Turma">
             <p></p>
             <input type="submit" id="sub">
@@ -38,9 +38,30 @@
         <script>
          let submit = document.querySelector("#sub"),
                 codigoTurma = document.querySelector("#codigoTurma"),
-                nomeTurma = document.querySelector("#nomeTurma")
+                nomeTurma = document.querySelector("#nomeTurma"),
+                turmas = JSON.parse(localStorage.getItem("turmasVetor"))
 
-            submit.addEventListener('click', (event) => {
+            window.addEventListener("load", (event) => {
+                let divTurmas = document.querySelector(".divTurmas")
+                
+                for (let turma of turmas) {
+                    const linkTurma = document.createElement("a")
+    
+                    linkTurma.href = `alunos.html?codigoTurma=${turma.codigoTurma}`
+                    linkTurma.innerHTML = "Nome da Turma: " + (turma.nomeTurma || "Sem Nome" ) + "<br>" + "Código da Turma: " + (turma.codigoTurma || "Sem")
+    
+                    divTurmas.append(linkTurma)
+                }
+                })
+
+                submit.addEventListener('click', (event) => {
+                    for(let i = 0;i < turmas.length;i++){
+                        let codigo = codigoTurma.value
+                        if(codigo == turmas[i].codigoTurma) {
+                            alert("Código já utilizado")
+                            return
+                        }
+                    }
                 if(codigoTurma.value == ""){
                     alert("Código Inválido")
                     return
@@ -52,19 +73,6 @@
                 document.location.reload(true);
             })
 
-            window.addEventListener("load", (event) => {
-                let turmas = JSON.parse(localStorage.getItem("turmasVetor")),
-                    divTurmas = document.querySelector(".divTurmas")
-                
-                for (let turma of turmas) {
-                    const linkTurma = document.createElement("a")
-    
-                    linkTurma.href = `alunos.html?codigoTurma=${turma.codigoTurma}`
-                    linkTurma.innerHTML = "Nome da Turma: " + (turma.nomeTurma || "Sem Nome" ) + "<br>" + "Código da Turma: " + (turma.codigoTurma || "Sem")
-    
-                    divTurmas.append(linkTurma)
-                }
-                })
         </script>
 </body>
 </html>

@@ -1,10 +1,8 @@
 
 function cadastrarTurma(codigoTurma,nomeTurma){
     let turmasVetor = JSON.parse(localStorage.getItem("turmasVetor"))
-    console.log(turmasVetor)
     turmasVetor.push(new Turma(codigoTurma, nomeTurma))
     localStorage.setItem("turmasVetor",JSON.stringify(turmasVetor))
-    console.log(JSON.stringify(turmasVetor))
 }
 
 
