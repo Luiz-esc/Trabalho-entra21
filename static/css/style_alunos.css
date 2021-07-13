@@ -1,0 +1,15 @@
+body{
+    text-align: center;
+}
+
+p > .titulo{
+    position: relative;
+    top: 20px;
+}
+
+#submit{
+    background-color: #FEC025;
+    color:#711C1E;
+    font-family: 'Encode Sans SC', sans-serif;
+    font-weight: 600;
+}
