@@ -7,22 +7,36 @@
     <title>Document</title>
 </head>
 <body>
+    <h2>Cadastrar Aluno</h2>
     
+    <p>Matrícula</p>
+    <input id="matricula" required type="text">
+    <p>Nome</p>
+    <input id="nome" required type="text">
+    <p>Telefone</p>
+    <input id="telefone" required type="text">
+    <p>E-mail</p>
+    <input id="email" required type="text">
+    <p></p>
+    <input id="submit" value="Cadastrar" type="submit">
 
 </body>
     <script src="../static/js/classes.js"></script>
     <script>
         const codigoTurma = +new URLSearchParams(location.search).get("codigoTurma")
         const turmas = JSON.parse(localStorage.getItem("turmasVetor"))
-        
-        
 
+        let matricula = document.querySelector("#matricula"),
+            nome = matricula = document.querySelector("#nome"),
+            telefone = matricula = document.querySelector("#telefone"),
+            email = matricula = document.querySelector("#email")
+        
         for (let turma of turmas) {
             if (+turma.codigoTurma === codigoTurma) {
-                let novaTurma = new Turma(turma.codigoTurma, turma.nomeTurma)
-                novaTurma.cadastrarAluno(123, "ddsdas", "9999","dsada")
+                var turmaObj = Object.assign(new Turma("",""), turma)
+                turmaObj.cadastrarAluno(123, "ddsdas", "9999","dsada")
 
-                for (let aluno of novaTurma.alunos) {
+                for (let aluno of turmaObj.alunos) {
                     const pAluno = document.createElement("p")
                     pAluno.innerHTML = aluno.nome
                     document.body.append(pAluno)
@@ -30,5 +44,7 @@
                 break
             }        
         } 
+
+        console.log(turmas);
     </script>
 </html>
