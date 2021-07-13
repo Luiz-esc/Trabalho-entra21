@@ -25,28 +25,12 @@ class Turma {
         }
     }
 
-    cadastraNotas(matricula, n1, n2, n3) {
-        for (let aluno of this.alunos) {
-            if (aluno.matricula == matricula) {
-                aluno.notas = [n1, n2, n3]
-            }
-        }
-    }
-
     editarInformações(matricula, nome, telefone, email) {
         for (let aluno of this.alunos) {
             if (aluno.matricula == matricula) {
                 aluno.nome = nome
                 aluno.telefone = telefone
                 aluno.email = email
-            }
-        }
-    }
-
-    calcularMedia(matricula) {
-        for (let aluno of this.alunos) {
-            if (aluno.matricula == matricula) {
-                return (aluno.notas[0] + aluno.notas[1] + aluno.notas[2]) / 3
             }
         }
     }
@@ -59,5 +43,13 @@ class Aluno {
         this.telefone = telefone
         this.email = email
         this.notas = []
+    }
+
+    cadastraNotas(n1, n2, n3) {
+                this.notas = [n1,n2,n3]
+    }
+
+    calcularMedia(n1, n2, n3) {
+            return (n1 + n2 + n3) / 3
     }
 }
