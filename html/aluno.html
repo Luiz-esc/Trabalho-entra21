@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script src="../static/js/classes.js"></script>
+    <script>
+        const codigoTurma = +new URLSearchParams(location.search).get("codigoTurma")
+        const codigoAluno = +new URLSearchParams(location.search).get("codigoAluno")
+        const turmas = JSON.parse(localStorage.getItem("turmasVetor"))
+
+        for (let turma of turmas) {
+            if (+turma.codigoTurma === codigoTurma) {
+                var turmaObj = Object.assign(new Turma("",""), turma)
+
+                for(let aluno of turmaObj.alunos){
+                    if(aluno.matricula == codigoAluno){
+                        const infoAluno = document.createElement("div")
+                        infoAluno.innerHTML = "Nome do aluno: " + (aluno.nome) + "<br>" + "Matricula: " + (aluno.matricula) + "<br>" + "Telefone: " + (aluno.telefone) + "<br>" + "E-mail: " + (aluno.email)
+        
+                        document.body.append(infoAluno)
+                    }
+        
+                }
+            }
+        }        
+    </script>
+</body>
+</html>

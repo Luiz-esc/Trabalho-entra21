@@ -8,6 +8,26 @@
     <link rel="stylesheet" href="../static/css/style_turmas.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div >
+        <h2>Cadastrar Aluno</h2>
+    
+        <p>Matrícula</p>
+        <input id="matricula" required type="text">
+        <p>Nome</p>
+        <input id="nome" required type="text">
+        <p>Telefone</p>
+        <input id="telefone" required type="text">
+        <p>E-mail</p>
+        <input id="email" required type="text">
+        <p></p>
+        <input id="submit" value="Cadastrar" type="submit">
+    
+    </div>
+  
     <link rel="stylesheet" href="../static/css/style_alunos.css">
     <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC&display=swap" rel="stylesheet">
     <link rel="sortcut icon" href="../static/images/Logo_noTittle_1000x800.ico" type="ico" />
@@ -43,7 +63,6 @@
     <input id="submit" value="Cadastrar" type="submit">
 <br><br>
 </center>
-
 </section>
 </body>
     <script src="../static/js/classes.js"></script>
@@ -52,23 +71,39 @@
         const turmas = JSON.parse(localStorage.getItem("turmasVetor"))
 
         let matricula = document.querySelector("#matricula"),
-            nome = matricula = document.querySelector("#nome"),
-            telefone = matricula = document.querySelector("#telefone"),
-            email = matricula = document.querySelector("#email")
-        
+            nome =  document.querySelector("#nome"),
+            telefone =  document.querySelector("#telefone"),
+            email =  document.querySelector("#email"),
+            submit = document.querySelector("#submit")
+
         for (let turma of turmas) {
             if (+turma.codigoTurma === codigoTurma) {
                 var turmaObj = Object.assign(new Turma("",""), turma)
-                turmaObj.cadastrarAluno(123, "ddsdas", "9999","dsada")
 
-                for (let aluno of turmaObj.alunos) {
-                    const pAluno = document.createElement("p")
-                    pAluno.innerHTML = aluno.nome
-                    document.body.append(pAluno)
-                }
-                break
-            }        
-        } 
+                submit.addEventListener("click", (event) => {
+
+                    for(let i = 0;i < turmaObj.alunos.length;i++){
+                        if(+matricula.value == +turmaObj.alunos[i].matricula){
+                            alert("Matricula já utilizada")
+                            return
+                        }
+                    }
+                    turmaObj.cadastrarAluno(matricula.value, nome.value, telefone.value, email.value)
+                    localStorage.setItem("turmasVetor",JSON.stringify(turmas))
+                })
+
+                window.addEventListener("load", (event) =>{
+                        for (let aluno of turma.alunos) {
+                            const linkAluno = document.createElement("a")
+        
+                            linkAluno.href = `aluno.html?codigoTurma=${codigoTurma}&codigoAluno=${aluno.matricula}`
+                            linkAluno.innerHTML = "Nome do aluno: " + (aluno.nome) + "<br>" + "Matricula: " + (aluno.matricula) + "<br>"
+        
+                            document.body.append(linkAluno)
+                    }
+                    })
+                }        
+            } 
 
         console.log(turmas);
     </script>
