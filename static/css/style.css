@@ -1,5 +1,8 @@
-body{
+*{
     margin: 0;
+    font-family: 'Encode Sans SC', sans-serif;
+    font-weight: 700;
+    
 }
 
 #logo{
@@ -21,7 +24,7 @@ header{
     color: #FEC025;
     font-weight: bold;
     letter-spacing: 1px;
-    font-family: 'Ditot, sans serif';
+    
     
 }
 
@@ -32,7 +35,7 @@ header{
     color: #FEC025;
     font-weight: 200;
     letter-spacing: 1px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Encode Sans SC', sans-serif;
 }
 
 #titulo{
@@ -73,7 +76,7 @@ header{
   }
 
   .titulo-card{
-    font-family: 'Lato', sans-serif;
+    font-family: 'Encode Sans SC', sans-serif;
     color: rgb(102, 102, 102);
     font-size: 1.375rem;
     line-height: 27px;
@@ -81,7 +84,7 @@ header{
   }
 
   .info{      
-    font-family: 'Lato', sans-serif;
+    font-family: 'Encode Sans SC', sans-serif;
     color: #666;
   }
 
@@ -115,7 +118,7 @@ nav{
     color: #711C1E;
     font-weight: 300;
     letter-spacing: 1.5px;
-    font-family: 'Open Sans Regular', 'Open Sans', Arial;
+    font-family: 'Encode Sans SC', sans-serif;
 }
 
 #logo-intro{
@@ -127,7 +130,7 @@ nav{
   }
 
 .texto-intro{
-  font-family: 'Lato', sans-serif;
+  font-family: 'Encode Sans SC', sans-serif;
   letter-spacing: 0.4px;
   color: #711C1E;
   font-weight: 530;
@@ -137,7 +140,7 @@ nav{
 }
 
 #titulo-fotos{
-  font-family: 'Lato', sans-serif;
+  font-family: 'Encode Sans SC', sans-serif;
   letter-spacing: 0.4px;
   color: #711C1E;
   text-align: center;
@@ -147,7 +150,7 @@ nav{
 
 
 * {box-sizing: border-box;}
-            body {font-family: 'Lato', sans-serif;}
+            body {font-family: 'Encode Sans SC', sans-serif;}
             .mySlides {display: none;}
             img {vertical-align: middle }
             
@@ -279,7 +282,7 @@ nav{
             .row { zoom:1;}
             
           
-            @media only screen and (max-width: 768px) {
+            @media only screen and (max-width: 1024px) {
               .col {  margin: 1% 0 1% 0%; }
               [class*='grid_'] { width: 100%; }
             }
@@ -347,7 +350,7 @@ nav{
 
 #botao-escrita{
   text-decoration: none;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Encode Sans SC', sans-serif;
   font-weight: 500;
   color: #FEC025;
   font-size: 18px;
@@ -365,3 +368,154 @@ text-decoration: none;
     margin-left: 150px;
   }
 }
+
+@media(min-width: 600px){
+  
+}
+
+@media(min-width: 768px){
+  
+}
+
+@media(min-width: 1024px){
+  .col {  margin: 1px; margin-left: 5px;}
+  [class*='grid_'] { width: 24%; }
+  
+  #logo{
+    width: 15%;
+    position: relative;
+    right: 20%;
+    margin-left: 0px;
+  }
+  #lista-nome{
+    font-size: 24px;
+    display: block;
+    text-align: center;
+    color: #711C1E;
+    position: relative;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    font-family: 'Encode Sans SC', sans-serif;
+}
+}
+.grid_1_of_5{
+  color: #FEC025;
+  font-size: 36px;
+}
+
+
+
+
+@media(min-width: 1199px){ 
+  .col {  margin: 1px; margin-left: 15px;}
+    [class*='grid_'] { width: 24%; }
+  
+  .grid_1_of_5{
+    color: #FEC025;
+    font-size: 36px;
+  }
+  #logo{
+    width: 25%;
+    position: relative;
+    right: 20%;
+    margin-left: 0px;
+  }
+  #lista-nome{
+    font-size: 36px;
+    display: block;
+    text-align: center;
+    color: #711C1E;
+    position: relative;
+    left: 480px;
+    padding-left: 50px;
+    font-weight: 300;
+    letter-spacing: 1.5px;
+    font-family: 'Encode Sans SC', sans-serif;
+}
+#lista-nav{
+  display: inline-block;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  
+}
+
+#lista-nav li {
+  text-align: center;
+  display: inline-block;   
+}
+
+#titulo-home{
+  text-decoration: none;
+}
+#titulo-section{
+  font-size: 80px;
+  display: block;
+  text-align: center;
+  color: #FEC025;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: 'Encode Sans SC', sans-serif;
+  
+}
+
+#subtitulo-section{
+  font-size: 46px;
+  display: block;
+  text-align: center;
+  color: #FEC025;
+  font-weight: 200;
+  letter-spacing: 1px;
+  font-family: 'Encode Sans SC', sans-serif;
+}
+
+.botao{
+  border: 2px solid #FEC025;
+  background-color: transparent;
+  padding: 10px 20px;
+  position: relative;
+  top: 20px;
+}
+
+.botao:hover{
+  cursor: pointer;
+}
+
+#botao-escrita{
+  text-decoration: none;
+  font-family: 'Encode Sans SC', sans-serif;
+  font-weight: 500;
+  color: #FEC025;
+  font-size: 26px;
+}
+#titulo{
+  background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url(../images/background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+
+#logo-intro{
+  width: 36%;
+  position: relative;
+  bottom: 15%;
+  margin-left: 450px;
+}
+.texto-intro{
+  font-family: 'Encode Sans SC', sans-serif;
+  letter-spacing: 0.4px;
+  color: #711C1E;
+  font-weight: 530;
+  font-size: 24px;
+  margin: 20px;
+  line-height: 1.5;
+}
+
+}
+  
+
+
+
+
+
+
