@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC&display=swap" rel="stylesheet">
+    <link rel="sortcut icon" href="../static/images/Logo_noTittle_1000x800.ico" type="ico" />
     <title>Turmas | Colégio SAC</title>
 </head>
 <body class="css-selector">
@@ -16,13 +17,13 @@
         <nav id="nav">
             <div class="container-nav">
             <ul id="lista-nav">
-                <li class="swing"><img id="logo" src="../static/images/Logo_noTittle_1000x800.png" alt=""></li>
+                <li><a href="../html/index.html"><img id="logo" src="../static/images/Logo_noTittle_1000x800.png" alt=""></a></li>
                 <li><a id="titulo-home" href="index.html"><p id="lista-nome">Home</p></a></li>
                 <li><a id="titulo-home" href="turmas.html"><p id="lista-nome">Turmas</p></a></li>
             </ul>
         </div>
     </header>
-
+    <section>
         <div class="buttons">
             <p>Código Turma</p>
             <input type="text" id="codigoTurma" required placeholder=" Código da Turma">
@@ -33,8 +34,9 @@
         </div>
 
         <div class="divTurmas"></div>
-
+    </section>
         <script  src="../static/js/classes.js"> </script>
+        
         <script>
          let submit = document.querySelector("#sub"),
                 codigoTurma = document.querySelector("#codigoTurma"),

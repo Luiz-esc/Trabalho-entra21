@@ -15,7 +15,7 @@
     color: white;
     line-height: 1.75;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background-color: black;
+    background-color: #711C1E;
     width: 100%;
     border-radius: 17px;
 }
@@ -27,16 +27,17 @@
 p{
     font-family: 'Encode Sans SC', sans-serif;
     font-weight: 700;
+    color: #FEC025;
 }
 
 input{
     border-radius: 17px;
-    border: 1px solid black;
+    border: 1px solid #FEC025;
     height: 30px;
 }
 
 #sub{
-    background-color: black;
+    background-color: #FEC025;
     color: white;
 }
 
@@ -46,3 +47,8 @@ input{
     flex-direction: column;
     padding: 5%;
 }
+
+section{
+    background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url(../images/background.png);
+}
+
