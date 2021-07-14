@@ -35,21 +35,21 @@ window.addEventListener("load", (event) => {
         divTurmas.append(excluirTurma)
         divTurmas.append("⠀")
 
-    excluirTurma.addEventListener('click', (event) => {
-        if (confirm("Você realmente deseja excluir essa turma?")) {
-        /**
-         * Adicionaod evento ao clicar para excluir turma
-         */
         excluirTurma.addEventListener('click', (event) => {
-            var turmaSelecionada = turmas.indexOf(turma)
-            if (turmaSelecionada > -1) {
-                turmas.splice(turmaSelecionada, 1)
+            if (confirm("Você realmente deseja excluir essa turma?")) {
+            /**
+             * Adicionaod evento ao clicar para excluir turma
+             */
+                var turmaSelecionada = turmas.indexOf(turma)
+                if (turmaSelecionada > -1) {
+                    turmas.splice(turmaSelecionada, 1)
+                }
             }
-        }
-        localStorage.setItem("turmasVetor",JSON.stringify(turmas))
-        document.location.reload(true);
-    }) 
-}
+            localStorage.setItem("turmasVetor",JSON.stringify(turmas))
+            document.location.reload(true);
+        })
+    }    
+})
 
 /**
  * Adicionado evento de click para cadastrar turma
