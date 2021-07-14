@@ -10,7 +10,8 @@
   display: inl;
   right: 15%;
   margin-left: 0px;
-  
+  visibility: visible;
+  animation: blink-logo 1s ease 0s 1 normal forwards;
 }
 
 header{
@@ -24,7 +25,7 @@ header{
   color: #FEC025;
   font-weight: bold;
   letter-spacing: 1px;
-  
+  animation: text-slidein 1s ease 0s 1 normal forwards;
   
 }
 
@@ -36,6 +37,7 @@ header{
   font-weight: 200;
   letter-spacing: 1px;
   font-family: 'Encode Sans SC', sans-serif;
+  animation: blink-logo 1s ease 0s 1 normal forwards;
 }
 
 #titulo{
@@ -91,6 +93,7 @@ header{
 nav{
     display: flex;
     text-align: center;
+    animation: blink-logo 1s ease 0s 1 normal forwards;
 }
 
 
@@ -129,6 +132,7 @@ nav{
   right: 15%;
   margin-left: 0px;
   margin-top: 10%;
+  animation: blink-logo 1s ease 0s 1 normal forwards;
 }
 
 .texto-intro{
@@ -139,6 +143,7 @@ font-weight: 530;
 font-size: 14px;
 margin: 20px;
 line-height: 1.5;
+animation: text-slidein 1s ease 0s 1 normal forwards;
 }
 
 #titulo-fotos{
@@ -276,6 +281,7 @@ line-height: 1.5;
             float:left;
             margin: 1% 0 1% 10%;
             width: 100px;
+            padding-bottom: 20px;
           }
         
           .row:before,
@@ -541,7 +547,28 @@ line-height: 1.5;
 }
 }
 
+@keyframes blink-logo {
+  0% {
+    opacity: 0;
+  }
 
+  100% {
+    opacity: 1;
+  }
+}
 
+@keyframes text-slidein {
+  0% {
+    opacity: 0;
+    transform: translateX(-250px);
+  }
 
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
+.buttons p {
+  padding: 30px;
+}
