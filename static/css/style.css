@@ -258,7 +258,7 @@ line-height: 1.5;
             display: flex;
             justify-content: space-around;
             align-items: center;
-            margin: 0
+            margin: 0;
         }
           
           .value {
@@ -429,7 +429,7 @@ font-size: 36px;
   text-align: center;
   color: #711C1E;
   position: relative;
-  left: 900px;
+  left: 600px;
   bottom: 150px;
   padding-left: 50px;
   font-weight: 300;
@@ -537,7 +537,7 @@ line-height: 1.5;
   margin: 30px;
   line-height: 1.5;
   position: relative;
-  left: 687px;
+  left: 420px;
 }
 }
 
