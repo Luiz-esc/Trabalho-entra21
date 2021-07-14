@@ -35,11 +35,24 @@ for (let turma of turmas) {
             let div = document.querySelector(".alunos")
                 for (let aluno of turma.alunos) {
                     const linkAluno = document.createElement("a")
+                    const excluirAluno = document.createElement("a")
 
                     linkAluno.href = `aluno.html?codigoTurma=${codigoTurma}&codigoAluno=${aluno.matricula}`
                     linkAluno.innerHTML = "Nome do aluno: " + (aluno.nome) + "<br>" + "Matricula: " + (aluno.matricula) + "<br>"
 
+                    excluirAluno.innerHTML = "X"
+
                     div.append(linkAluno)
+                    div.append(excluirAluno)
+
+                    excluirAluno.addEventListener('click', (event) => {
+                        var alunoSelecionado = turma.alunos.indexOf(aluno)
+                        if (alunoSelecionado > -1) {
+                            turma.alunos.splice(alunoSelecionado, 1)
+                        }
+                        localStorage.setItem("turmasVetor",JSON.stringify(turmas))
+                        document.location.reload(true);
+                    }) 
                 }
             })
         }        
