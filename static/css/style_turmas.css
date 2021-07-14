@@ -41,15 +41,32 @@ input{
     color: white;
 }
 
+h3{
+    padding: 1rem;
+    font-size: 50px;
+    color:#FEC025;
+}
+
 .buttons {
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding: 15%;
+    padding: 5%;
 }
 
 section{
     background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url(../images/background.png);
+}
+
+.divTurmas{
+    background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url(../images/background.png);
+    max-height: 50vh;
+}
+
+h2{
+    padding: 1rem;
+    font-size: 50px;
+    color:#711C1E; ;
 }
 
 @media(min-width: 1199px){ 

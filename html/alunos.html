@@ -52,6 +52,19 @@
 <br><br><br><br><br><br>
 </center>
 </section>
+
+
+<h2>
+<center>
+    Alunos
+</center></h2>
+</div>
+
+<section class="alunos">
+    <h3 id="erro"></h3>
+</section>
+
+
 <footer>
     <center>
           <ul id="lista-footer">
@@ -66,45 +79,5 @@
     </footer>
 </body>
     <script src="../static/js/classes.js"></script>
-    <script>
-        const codigoTurma = +new URLSearchParams(location.search).get("codigoTurma")
-        const turmas = JSON.parse(localStorage.getItem("turmasVetor"))
-
-        let matricula = document.querySelector("#matricula"),
-            nome =  document.querySelector("#nome"),
-            telefone =  document.querySelector("#telefone"),
-            email =  document.querySelector("#email"),
-            submit = document.querySelector("#submit")
-
-        for (let turma of turmas) {
-            if (+turma.codigoTurma === codigoTurma) {
-                var turmaObj = Object.assign(new Turma("",""), turma)
-
-                submit.addEventListener("click", (event) => {
-
-                    for(let i = 0;i < turmaObj.alunos.length;i++){
-                        if(+matricula.value == +turmaObj.alunos[i].matricula){
-                            alert("Matricula já utilizada")
-                            return
-                        }
-                    }
-                    turmaObj.cadastrarAluno(matricula.value, nome.value, telefone.value, email.value)
-                    localStorage.setItem("turmasVetor",JSON.stringify(turmas))
-                })
-
-                window.addEventListener("load", (event) =>{
-                        for (let aluno of turma.alunos) {
-                            const linkAluno = document.createElement("a")
-        
-                            linkAluno.href = `aluno.html?codigoTurma=${codigoTurma}&codigoAluno=${aluno.matricula}`
-                            linkAluno.innerHTML = "Nome do aluno: " + (aluno.nome) + "<br>" + "Matricula: " + (aluno.matricula) + "<br>"
-        
-                            document.body.append(linkAluno)
-                    }
-                    })
-                }        
-            } 
-
-        console.log(turmas);
-    </script>
+    <script src="../static/js/alunos.js"></script>
 </html>
