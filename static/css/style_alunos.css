@@ -8,6 +8,11 @@
     padding: 5%;
 }
 
+.alunos a:hover {
+    color: #FEC025;
+    cursor: pointer;
+}
+
 .alunos a {
     text-transform: uppercase;
     text-decoration: none;

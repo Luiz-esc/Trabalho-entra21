@@ -19,6 +19,11 @@
     border-radius: 17px;
 }
 
+.divTurmas a:hover {
+    color: #FEC025;
+    cursor: pointer;
+}
+
 #logo{
     width: 20%;
 }
