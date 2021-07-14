@@ -47,9 +47,11 @@ for (let turma of turmas) {
                     div.append("⠀")
 
                     excluirAluno.addEventListener('click', (event) => {
-                        var alunoSelecionado = turma.alunos.indexOf(aluno)
-                        if (alunoSelecionado > -1) {
-                            turma.alunos.splice(alunoSelecionado, 1)
+                        if (confirm("Você realmente deseja excluir esse aluno?")) {
+                            var alunoSelecionado = turma.alunos.indexOf(aluno)
+                            if (alunoSelecionado > -1) {
+                                turma.alunos.splice(alunoSelecionado, 1)
+                            }
                         }
                         localStorage.setItem("turmasVetor",JSON.stringify(turmas))
                         document.location.reload(true);
