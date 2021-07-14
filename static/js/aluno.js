@@ -1,3 +1,6 @@
+/**
+ * Recebendo o vetor turmas do localStorage
+ */
 const codigoTurma = +new URLSearchParams(location.search).get("codigoTurma")
 const codigoAluno = +new URLSearchParams(location.search).get("codigoAluno")
 const turmas = JSON.parse(localStorage.getItem("turmasVetor"))
@@ -7,8 +10,10 @@ var n1 = document.querySelector("#n1"),
     n3 = document.querySelector("#n3"),
     submit = document.querySelector("#submit")
 
- //Modal Info
- var modalInfo = document.querySelector("#modalInfo");
+/**
+ * Modal de Editar Informações
+ */
+var modalInfo = document.querySelector("#modalInfo");
 var btnInfo = document.querySelector("#btnInfo");
 var spanInfo = document.getElementsByClassName("exit")[0];
 
@@ -26,17 +31,19 @@ window.onclick = function(event) {
     }
 } 
 
-//Modal Cadastro
+/**
+ * Modal de cadastro de notas
+ */
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 btn.onclick = function() {
-modal.style.display = "block";
+    modal.style.display = "block";
 }
 
 span.onclick = function() {
-modal.style.display = "none";
+    modal.style.display = "none";
 }
 
 window.onclick = function(event) {
@@ -45,11 +52,16 @@ window.onclick = function(event) {
     }
 } 
 
-
+/**
+ * Definindo a turma passada pela url
+ */
 for (let turma of turmas) {
     if (turma.codigoTurma == codigoTurma) {
         var turmaObj = Object.assign(new Turma("",""), turma)
 
+        /**
+         * Definindo o aluno passado pela url
+         */
         for(let aluno of turmaObj.alunos){
             if(aluno.matricula == codigoAluno){
                 var alunoObj = Object.assign(new Aluno("",""), aluno)
@@ -78,6 +90,9 @@ for (let turma of turmas) {
                     editTel.value = alunoObj.telefone
                     editEmail.value = alunoObj.email
 
+                    /**
+                     * Adicionando evento de click ao enviar do editar informações
+                     */
                     subInfo.addEventListener("click", (event) => {
                         for (let i = 0; i < turmaObj.alunos.length; i++) {
                             if(turmaObj.alunos[i].matricula == codigoAluno) {
@@ -93,6 +108,9 @@ for (let turma of turmas) {
                         }
                     })
 
+                    /**
+                     * Adicionando evento de click ao enviar do cadastro de notas
+                     */
                     submit.addEventListener("click", (event) => {
                         for (let i = 0; i < turmaObj.alunos.length; i++) {
                             if(turmaObj.alunos[i].matricula == codigoAluno) {
@@ -110,10 +128,10 @@ for (let turma of turmas) {
                                 }                                                                                          
                                 localStorage.setItem("turmasVetor",JSON.stringify(turmas))
                                 document.location.reload(true);
-                            }   
-                        }
-                   })
-                }
+                                }   
+                            }
+                        })
+                    }
             }
         }
     } 
