@@ -23,8 +23,33 @@
             </ul>
         </div>
     </header>
-    <button id="myBtn">Open Modal</button>
 
+    <h2><center>Informações do Aluno</center></h2>
+   
+    <div class="infoHeader" >
+        <div class="info">
+        </div>
+        <center>
+            <button id="btnInfo">Editar Informações</button>
+        </center>
+    </div>
+
+    <!--Modal Edit Info-->
+    <div id="modalInfo" class="modalInfo">
+        <div class="modal-content">
+            <span class="exit">&times;</span>
+            <h2>Editar</h2>
+            <p>Nome</p>
+            <input type="text" id="editNome">
+            <p>Telefone</p>
+            <input type="text" id="editTel">
+            <p>E-mail</p>
+            <input type="email" id="editEmail"><br><br>
+            <input type="submit" id="submitInfo">
+          </div>
+    </div>
+
+    <!--Modal Cadastro-->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -39,101 +64,37 @@
           </div>
     </div>
 
-    <div class="info">
+    <h2><center>Notas</center></h2>
 
+    <div class="notas">
+        <center>
+            <table>
+                <tr><td colspan="3">Notas</td></tr>
+                <tr id="tr">
+                    <td id="n1Nota">
+    
+                    </td>
+                    <td id="n2Nota">
+    
+                    </td>
+                    <td id="n3Nota">
+    
+                    </td>
+                    <tr><td colspan="3">Média</td></tr>
+                    <tr>
+                        <td colspan="3" id="mediaNota"></td>
+                    </tr>
+                </tr>
+            </table>
+            <div class="modalBtn">
+                <center>
+                    <button id="myBtn">Cadastrar Notas</button>
+                </center>
+            </div>
+        </center>
     </div>
 
-    <table>
-        <tr id="tr">
-            <td id="n1Nota">
-
-            </td>
-            <td id="n2Nota">
-
-            </td>
-            <td id="n3Nota">
-
-            </td>
-            <td id="mediaNota">
-
-            </td>
-        </tr>
-    </table>
-
-
     <script src="../static/js/classes.js"></script>
-    <script>
-        var modal = document.getElementById("myModal");
-        var btn = document.getElementById("myBtn");
-        var span = document.getElementsByClassName("close")[0];
-
-        btn.onclick = function() {
-        modal.style.display = "block";
-        }
-
-        span.onclick = function() {
-        modal.style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        } 
-
-        const codigoTurma = +new URLSearchParams(location.search).get("codigoTurma")
-        const codigoAluno = +new URLSearchParams(location.search).get("codigoAluno")
-        const turmas = JSON.parse(localStorage.getItem("turmasVetor"))
-
-        let n1 = document.querySelector("#n1"),
-            n2 = document.querySelector("#n2"),
-            n3 = document.querySelector("#n3"),
-            submit = document.querySelector("#submit")
-
-
-        for (let turma of turmas) {
-            if (+turma.codigoTurma === codigoTurma) {
-                var turmaObj = Object.assign(new Turma("",""), turma)
-
-                submit.addEventListener("click", (event) =>{
-                    for (let i = 0; i < turmaObj.alunos.length; i++) {
-                        if(turmaObj.alunos[i].matricula == codigoAluno) {
-                            var alunoObj = Object.assign(new Aluno("",""), turmaObj.alunos[i])
-                            alunoObj.cadastraNotas(n1.value, n2.value, n3.value)
-                            turmaObj.alunos[i] = alunoObj
-                        
-                            let n1Nota = document.querySelector("#n1Nota"),
-                                n2Nota = document.querySelector("#n2Nota"),
-                                n3Nota = document.querySelector("#n3Nota"),
-                                mediaNota = document.querySelector("#mediaNota")
-                            
-                            n1Nota.innerHTML = n1.value || 0
-                            n2Nota.innerHTML = n2.value || 0
-                            n3Nota.innerHTML = n3.value || 0
-                            mediaNota.innerHTML = alunoObj.calcularMedia(+n1.value, +n2.value, +n3.value)
-
-                            localStorage.setItem("turmasVetor",JSON.stringify(turmas))
-                        }
-                    }
-                })
-
-                for(let aluno of turmaObj.alunos){
-                    if(aluno.matricula == codigoAluno){
-                        var alunoObj = Object.assign(new Aluno("",""), aluno)
-                        const infoAluno = document.createElement("div")
-                        let info = document.querySelector(".info")
-                        infoAluno.innerHTML = "Nome do aluno: " + (aluno.nome) + "<br>" + "Matricula: " + (aluno.matricula) + "<br>" + "Telefone: " + (aluno.telefone) + "<br>" + "E-mail: " + (aluno.email)
-        
-                        info.append(infoAluno)
-                    }
-                }
-            }
-        } 
-
-        
-    
-        
-        
-    </script>
+    <script src="../static/js/aluno.js"></script>
 </body>
 </html>

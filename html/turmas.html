@@ -25,6 +25,11 @@
         </div>
     </header>
     <section>
+        <h3>
+        <center>
+            Cadastrar Turma
+        </center>
+    </h3>
         <div class="buttons">
             <p>Código Turma</p>
             <br>
@@ -37,49 +42,20 @@
             <br><br>
             <input type="submit" id="sub">
         </div>
-
-        <div class="divTurmas"></div>
     </section>
+
+    <div class="breaker"></div>
+
+    <h2>
+    <center>
+        Turmas
+    </center>
+    </h2>
+
+    <div class="divTurmas">
+        <h3 id="texto-erro"></h3>
+    </div>
         <script  src="../static/js/classes.js"> </script>
-        
-        <script>
-         let submit = document.querySelector("#sub"),
-                codigoTurma = document.querySelector("#codigoTurma"),
-                nomeTurma = document.querySelector("#nomeTurma"),
-                turmas = JSON.parse(localStorage.getItem("turmasVetor"))
-
-            window.addEventListener("load", (event) => {
-                let divTurmas = document.querySelector(".divTurmas")
-                
-                for (let turma of turmas) {
-                    const linkTurma = document.createElement("a")
-    
-                    linkTurma.href = `alunos.html?codigoTurma=${turma.codigoTurma}`
-                    linkTurma.innerHTML = "Nome da Turma: " + (turma.nomeTurma || "Sem Nome" ) + "<br>" + "Código da Turma: " + (turma.codigoTurma || "Sem")
-    
-                    divTurmas.append(linkTurma)
-                }
-                })
-
-                submit.addEventListener('click', (event) => {
-                    for(let i = 0;i < turmas.length;i++){
-                        let codigo = codigoTurma.value
-                        if(codigo == turmas[i].codigoTurma) {
-                            alert("Código já utilizado")
-                            return
-                        }
-                    }
-                if(codigoTurma.value == ""){
-                    alert("Código Inválido")
-                    return
-                } else if (nomeTurma.value == ""){
-                    alert("Nome Inválido")
-                    return
-                }
-                cadastrarTurma(codigoTurma.value  ,nomeTurma.value)
-                document.location.reload(true);
-            })
-
-        </script>
+        <script src="../static/js/turmas.js"></script>
 </body>
 </html>

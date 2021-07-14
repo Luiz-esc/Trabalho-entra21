@@ -98,7 +98,7 @@ nav{
   display: inline-block;
   list-style: none;
   text-align: center;
-  padding: 0;
+  padding: 3%;
   
 }
 
@@ -110,6 +110,8 @@ nav{
 #titulo-home{
   text-decoration: none;
 }
+
+
 
 #lista-nome{
   font-size: 18px;
