@@ -16,7 +16,7 @@
     line-height: 1.75;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #711C1E;
-    width: 100%;
+    width: 80%;
     border-radius: 17px;
 }
 
@@ -34,6 +34,7 @@ input{
     border-radius: 17px;
     border: 1px solid #FEC025;
     height: 30px;
+
 }
 
 #sub{
@@ -88,7 +89,7 @@ h2{
         line-height: 1.75;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         background-color: #711C1E;
-        width: 100%;
+        width: 80%;
         border-radius: 17px;
     }
     
@@ -124,7 +125,6 @@ h2{
     font-size: 40px;
 }    
 input{
-    width: 300px;
     height: 55px;
     
 }
@@ -132,7 +132,6 @@ input{
     background-color: #FEC025;
     color:#711C1E;
     font-family: 'Encode Sans SC', sans-serif;
-    font-weight: 600;
 }
 #codigoTurma{
     font-size: 20px;
@@ -144,8 +143,6 @@ input{
 }
 #buttons{
     position: relative;
-    top: 100px;
+    top: 100px; 
 }
 }
-
-

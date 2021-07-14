@@ -13,13 +13,28 @@ let divTurmas = document.querySelector(".divTurmas")
 
 for (let turma of turmas) {
     const linkTurma = document.createElement("a")
+    const excluirTurma = document.createElement("a")
 
     linkTurma.href = `alunos.html?codigoTurma=${turma.codigoTurma}`
     linkTurma.innerHTML = "Nome da Turma: " + (turma.nomeTurma || "Sem Nome" ) + "<br>" + "Código da Turma: " + (turma.codigoTurma || "Sem")
 
+    excluirTurma.innerHTML = "X"
+
     divTurmas.append(linkTurma)
+    divTurmas.append(excluirTurma)
+
+    excluirTurma.addEventListener('click', (event) => {
+        var turmaSelecionada = turmas.indexOf(turma)
+        if (turmaSelecionada > -1) {
+            turmas.splice(turmaSelecionada, 1)
+        }
+        localStorage.setItem("turmasVetor",JSON.stringify(turmas))
+        document.location.reload(true);
+    }) 
 }
 })
+
+
 
 submit.addEventListener('click', (event) => {
     for(let i = 0;i < turmas.length;i++){
