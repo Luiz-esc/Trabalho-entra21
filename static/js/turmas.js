@@ -19,9 +19,11 @@ for (let turma of turmas) {
     linkTurma.innerHTML = "Nome da Turma: " + (turma.nomeTurma || "Sem Nome" ) + "<br>" + "Código da Turma: " + (turma.codigoTurma || "Sem")
 
     excluirTurma.innerHTML = "X"
+    excluirTurma.style.backgroundColor = "blackj"
 
     divTurmas.append(linkTurma)
     divTurmas.append(excluirTurma)
+    divTurmas.append("⠀")
 
     excluirTurma.addEventListener('click', (event) => {
         var turmaSelecionada = turmas.indexOf(turma)

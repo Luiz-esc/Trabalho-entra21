@@ -47,7 +47,7 @@ window.onclick = function(event) {
 
 
 for (let turma of turmas) {
-    if (+turma.codigoTurma === codigoTurma) {
+    if (turma.codigoTurma == codigoTurma) {
         var turmaObj = Object.assign(new Turma("",""), turma)
 
         for(let aluno of turmaObj.alunos){

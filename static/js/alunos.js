@@ -44,6 +44,7 @@ for (let turma of turmas) {
 
                     div.append(linkAluno)
                     div.append(excluirAluno)
+                    div.append("⠀")
 
                     excluirAluno.addEventListener('click', (event) => {
                         var alunoSelecionado = turma.alunos.indexOf(aluno)
